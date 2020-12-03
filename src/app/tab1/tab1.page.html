@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Dashboard
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,53 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Dashboard</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <!-- Primeira Coluna - Card de Lembrete -->
+      <ion-col size="12"
+               size-md="6">
+        <ion-card>
+          <ion-item>
+            <ion-icon name="alarm"
+                      slot="start"></ion-icon>
+            <ion-label>Lembrete</ion-label>
+            <ion-button fill="outline"
+                        slot="end"
+                        color="danger">
+              Abrir
+            </ion-button>
+          </ion-item>
+
+          <ion-card-content>
+            Não se esqueça que você possui uma agenda às 16h30min!
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Segunda Coluna - Card de Parabenização -->
+      <ion-col size="12"
+               size-md="6">
+        <ion-card>
+          <ion-item>
+            <ion-icon name="sunny"
+                      slot="start"></ion-icon>
+            <ion-label>Parabéns!</ion-label>
+            <ion-button fill="outline"
+                        slot="end"
+                        color="success">
+              Abrir
+            </ion-button>
+          </ion-item>
+
+          <ion-card-content>
+            Você obteve 10 pontos por concluir suas atividades no horário ontem!
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
