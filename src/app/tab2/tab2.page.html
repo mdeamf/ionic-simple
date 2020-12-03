@@ -13,51 +13,20 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    <ion-item>
-      <ion-button color="warning">
-        Proridade: 2
-      </ion-button>
-      <ion-label>
-        <h2>Ir aos Correios</h2>
-        <p>14h00min</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-button color="danger">
-        Proridade: 1
-      </ion-button>
-      <ion-label>
-        <h2>Atuar no Projeto</h2>
-        <p>14h30min</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-button color="warning">
-        Proridade: 2
-      </ion-button>
-      <ion-label>
-        <h2>Estudar Angular</h2>
-        <p>15h00min</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-button>
-        Proridade: 3
-      </ion-button>
-      <ion-label>
-        <h2>Estudar Ionic</h2>
-        <p>16h00min</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-button>
-        Proridade: 3
-      </ion-button>
-      <ion-label>
-        <h2>Estudar React</h2>
-        <p>17h00min</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-progress-bar type="indeterminate"
+                    *ngIf="isLoading"></ion-progress-bar>
+
+  <div *ngIf="!isLoading">
+    <ion-list *ngFor="let lembrete of lembretes">
+      <ion-item>
+        <ion-button color="{{ getPriorityColor(lembrete.priority) }}">
+          Proridade: {{ lembrete.priority }}
+        </ion-button>
+        <ion-label>
+          <h2>{{ lembrete.description }}</h2>
+          <p>{{ lembrete.time }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
